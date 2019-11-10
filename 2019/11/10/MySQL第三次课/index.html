@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MySQL第一次课 | Hexo</title>
+  <title>MySQL第三次课 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#/*Mysql数据库第一次课    0.数据库的分类        关系型数据库            SQL server  mysql orcale        非关系型数据库nosql            redis 一：什么是数据库    用来存储数据的仓库，数据库由一张一张的表组成，真正存储数据的地方为表 二：什么是表    表由行和列组成    行在数据库里称为记录    列称为">
+  <meta name="description" content="#/*    Mysql 第三次课      order by  排序        ASC升序        DESC降序      group by  分组      group by … having ..筛选符合条件的组      子查询        查询语句里边嵌套查询语句        子查询的结果作为外部查询的条件      连接        普通连接        内连接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL第一次课">
-<meta property="og:url" content="http://yoursite.com/2019/11/10/MySQL第一次课/index.html">
+<meta property="og:title" content="MySQL第三次课">
+<meta property="og:url" content="http://yoursite.com/2019/11/10/MySQL第三次课/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="#/*Mysql数据库第一次课    0.数据库的分类        关系型数据库            SQL server  mysql orcale        非关系型数据库nosql            redis 一：什么是数据库    用来存储数据的仓库，数据库由一张一张的表组成，真正存储数据的地方为表 二：什么是表    表由行和列组成    行在数据库里称为记录    列称为">
+<meta property="og:description" content="#/*    Mysql 第三次课      order by  排序        ASC升序        DESC降序      group by  分组      group by … having ..筛选符合条件的组      子查询        查询语句里边嵌套查询语句        子查询的结果作为外部查询的条件      连接        普通连接        内连接">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-11-10T09:59:28.436Z">
+<meta property="og:updated_time" content="2019-11-10T10:07:17.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL第一次课">
-<meta name="twitter:description" content="#/*Mysql数据库第一次课    0.数据库的分类        关系型数据库            SQL server  mysql orcale        非关系型数据库nosql            redis 一：什么是数据库    用来存储数据的仓库，数据库由一张一张的表组成，真正存储数据的地方为表 二：什么是表    表由行和列组成    行在数据库里称为记录    列称为">
+<meta name="twitter:title" content="MySQL第三次课">
+<meta name="twitter:description" content="#/*    Mysql 第三次课      order by  排序        ASC升序        DESC降序      group by  分组      group by … having ..筛选符合条件的组      子查询        查询语句里边嵌套查询语句        子查询的结果作为外部查询的条件      连接        普通连接        内连接">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,30 +154,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MySQL第一次课" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-MySQL第三次课" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MySQL第一次课
+      MySQL第三次课
     </h1>
   
 
         
-        <a href="/2019/11/10/MySQL第一次课/" class="archive-article-date">
-  	<time datetime="2019-11-10T09:58:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+        <a href="/2019/11/10/MySQL第三次课/" class="archive-article-date">
+  	<time datetime="2019-11-10T10:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#/*<br>Mysql数据库第一次课<br>    0.数据库的分类<br>        关系型数据库<br>            SQL server  mysql orcale<br>        非关系型数据库nosql<br>            redis</p>
-<p>一：什么是数据库<br>    用来存储数据的仓库，数据库由一张一张的表组成，真正存储数据的地方为表</p>
-<p>二：什么是表<br>    表由行和列组成<br>    行在数据库里称为记录<br>    列称为字段或属性<br>    例如：学生表，表里应该有学生的学号，姓名，身份证号，年纪，那么这些就·称为表的字段<br>    关系型数据库：是由一张一张有关系的表组成的<br>三：安装Mysql<br>    先安装Mysql服务器<br>       数据库是创建在服务器上的<br>    再安装Mysql客户端<br>       用于连接上Mysql服务器，进而对mysql服务器进行操作，比较常用客户端<br>四：<br>    1.创建语句<br>        1.1：创建数据库<br>                create datebase 库名；<br>        1.2：创建表<br>                 create table 表名（<br>            字段名1   数据类型   约束,<br>            字段名2   数据类型   约束,<br>            字段名3   数据类型   约束<br>        ）<br>    数据类型：<br>    常用的数据类型<br>        int  整型数据，占四个字节大小<br>        char 字符串数据，需要设置占用的字节个数，是一个固定长度的数据类型<br>        varchar 字符串数据，需要设置占用的字节个数，是一个可变长度的数据类型（可变长度的意思是：内容是多少<br>        就占多少个字节，而不是占用自己设置的字节个数）<br>        float<br>        date 日期<br>    2.插入语句<br>        insert into 表名（字段名1,字段名2）<br>        values（数据1,数据2）<br>    3.查询语句<br>        select 字段名1,字段名2…from表名<br>    4.删除语句<br>        删除库<br>            drop database 库名;<br>        删除表<br>            drop table 表名;<br>        删除表中的所有数据<br>            delete form 表名;<br>        删除表中的某些数据<br>            delete form 表名 where …<br>    5.修改语句<br>        update 表名 set … where …<br>    4.2 修改表的定义的语句<br>    #修改表的名字<br>    alter TABLE 就表名 rename 新表名<br>    #修改数据类型<br>    alter table 表名 modify 列名 数据类型<br>    #修改列名<br>    alter table change 旧列名 新列名<br>    #删除列<br>    alter table 表名 drop 列名<br>    #添加列<br>    alter table 表名 add 新列名 数据类型<br>   4.3 约束<br>    主键约束(primary key)<br>        主键：一行记录唯一标识、<br>        非空，不允许重复<br>    非空约束(not null)<br>    唯一约束(unique)<br>        不允许重复复，可为null，但null也不允许重复<br>    默认值约束(default)<br>    check约束<br>    外键约束(foreign key)<br>        外键：本张表中的，一个字段数据，引用另外一张表主键的数据。那么此字段，就称为本章表的外键<br>        例如：成绩表与学生信息表，两张表中都会用到学生学号，并且学号是学生信息表的主键，<br>        但成绩表中的学号引用的学生信息表中的学号。那么学号在成绩表中就称为外键<br>*/<br>SELECT * FROM stu;<br>#创建库<br>CREATE DATABASE onlinemall;<br>#使用onlinemall<br>USE onlinemall;<br>#创建表<br>CREATE TABLE goods(<br>    gid INT PRIMARY KEY,<br>    gnam VARCHAR(100),<br>    gprice FLOAT<br>)<br>#添加gweight字段<br>ALTER TABLE goods ADD gweight FLOAT;<br>#插入数据<br>INSERT INTO goods(gid,gnam,gprice)<br>VALUES(1,’小熊雨伞’,10.5);<br>INSERT INTO goods(gid,gnam,gprice)<br>VALUES(2,’小熊饼干’,3.5);<br>INSERT INTO goods(gid,gnam,gprice)<br>VALUES(3,’小熊书包’,25);<br>#查询数据<br>SELECT * FROM goods;<br>#删除gid等于3的数据<br>DELETE FROM goods WHERE gid=3;<br>#把小熊雨伞的价格改为15元<br>UPDATE goods SET gprice = 15 WHERE<br>    gnam = ‘小熊雨伞’;</p>
-<p>CREATE DATABASE ScgoolDB;<br>USE SchoolDB;<br>CREATE TABLE teacher(<br>    tid INT PRIMARY KEY AUTO_INCREMENT,<br>                #自增长<br>    teachaerName VARCHAR(20) NOT NULL,<br>    Hiredate DATE,<br>    Gender VARCHAR(5) DEFAULT ‘男’<br>)<br>insert into teacher(teachaerName,Hiredate,Gender) values(<br>                    ‘张三’,’2016-07-03’,’男’<br>                );<br>INSERT INTO teacher(teachaerName,Hiredate,Gender) VALUES(<br>                    ‘李四’,’2017-07-03’,’女’<br>                );<br>select * from teacher;</p>
+        <p>#/*<br>    Mysql 第三次课<br>      order by  排序<br>        ASC升序<br>        DESC降序<br>      group by  分组<br>      group by … having ..筛选符合条件的组<br>      子查询<br>        查询语句里边嵌套查询语句<br>        子查询的结果作为外部查询的条件<br>      连接<br>        普通连接<br>        内连接<br>            inner join….on…<br>            inner join连接两张表<br>            on后面跟的是连接条件<br>        外连接<br>            左连接<br>                left join…on…<br>                左边那张表数据全部显示<br>                右边那张表只显示匹配上的数据<br>            右连接<br>                right join…on….<br>                右边那张表全部显示<br>                左边那张表值显示匹配上的数据<br>        全连接<br>*/<br>CREATE DATABASE schooldb;<br>USE Schooldb;<br>#教师表<br>CREATE TABLE teacher(<br>    tid INT PRIMARY KEY AUTO_INCREMENT,<br>    tnam VARCHAR(20) NOT NULL,<br>    hiredate DATE,<br>    sex VARCHAR(5)<br>)<br>#班级表<br>CREATE TABLE ClassInfo(<br>    cid INT PRIMARY KEY AUTO_INCREMENT,<br>    cnam VARCHAR(20) NOT NULL,<br>    grid INT,#年级编号<br>    beginyear VARCHAR(20)<br>)<br>#学生信息表<br>CREATE TABLE StudentInfo(<br>    sid INT PRIMARY KEY AUTO_INCREMENT,<br>    snam VARCHAR(20) NOT NULL,<br>    sex VARCHAR(5),<br>    age INT,<br>    birthday DATE,<br>    cid INT,<br>    beginyear VARCHAR(20),<br>    stel VARCHAR(15),<br>    address VARCHAR(100),<br>    email VARCHAR(50)<br>)<br>#课程表<br>CREATE TABLE course(<br>    cid INT PRIMARY KEY AUTO_INCREMENT,<br>    cnam VARCHAR(50) NOT NULL,  #课程名<br>    tid INT    #讲授老师编号<br>)<br>#成绩表<br>CREATE TABLE Score(<br>    scid INT PRIMARY KEY AUTO_INCREMENT,<br>    sid INT,#学生学号<br>    coid INT,#课程编号<br>    score INT,<br>    remark VARCHAR(100) #备注<br>)<br>#年级表<br>CREATE TABLE grade(<br>    gid INT PRIMARY KEY AUTO_INCREMENT,<br>    gnam VARCHAR(50), #年级名<br>    major VARCHAR(100) #专业<br>)<br>#一次性插入多条语句<br>INSERT INTO teacher(tnam,hiredate,sex)<br>VALUES(‘张三’,’2017-09-01’,’男’),<br>(‘李四’,’2018-07-02’,’男’),<br>(‘王五’,’2016-08-16’,’男’);<br>INSERT INTO grade(gnam,major)<br>VALUES(‘18’,’软信’),(‘19’,’软信’),<br>(‘18’,’移动’),(‘19’,’移动’);<br>INSERT INTO StudentInfo(snam,sex,age,birthday,cid,beginyear,stel,address,email)<br>VALUES(‘崔一’,’男’,18,’2001-07-05’,1,’2018’,’18867890987’,<br>‘河南省许昌市’,‘155078923@qq.com’),<br>(‘丁二’,’男’,19,’2000-08-05’,2,’2018’,’18967890987’,<br>‘河南省郑州市’,‘156078923@qq.com’),<br>(‘丁三’,’男’,20,’1999-09-05’,3,’2018’,’18877890987’,<br>‘河南省洛阳市’,‘157078923@qq.com’),<br>(‘周三’,’女’,17,’2002-06-05’,4,’2019’,’18167890987’,<br>‘河南省开封市’,‘159078923@qq.com’);<br>INSERT INTO ClassInfo(cnam,grid,beginyear) VALUES(‘软信1’,1,’2018’)<br>,(‘移动1’,2,’2018’),(‘软信1’,3,’2019’),(‘移动1’,4,’2019’);<br>INSERT INTO course(cnam,tid)<br>VALUES(‘计算机基础’,1),(‘前端基础’,2),(‘Java基础’,3),(‘js’,3);<br>INSERT INTO Score(sid,coid,score,remark)<br>VALUES(1,1,90,’无’),(1,2,75,’无’),(1,3,59,’无’),(1,4,76,’无’),<br>(2,1,93,’无’),(2,2,74,’无’),(2,3,65,’无’),(2,4,82,’无’),<br>(3,1,91,’无’),(3,2,82,’无’),(3,3,43,’无’),<br>(4,1,96,’无’),(4,2,78,’无’),(4,3,56,’无’),(4,4,88,’无’);<br>#order by排序<br>#把学生信息表按年纪从小到大排序 ASC升序<br>SELECT * FROM studentinfo ORDER BY age ASC;<br>#把学生信息表按年纪从大到小排序 DESC降序<br>SELECT * FROM studentinfo ORDER BY age DESC;<br>#group by 分组<br>#把表按照某个字段进行分组<br>#查询出每个学生的平均成绩，需要显示的字段为，学生学号，平均成绩<br>SELECT sid,AVG(score) ‘平均成绩’ FROM score GROUP BY sid<br>#group by….having…<br>#筛选出来符合条件的组<br>#查询出全部及格的学生的学号<br>SELECT sid FROM score GROUP BY sid HAVING MIN(score)&gt;60;<br>#子查询<br>#查询出js基础这门课的成绩<br>SELECT coid,score FROM score WHERE coid=(SELECT cid FROM course WHERE cnam=’js’);<br>#查询出“周三”的各门课的成绩<br>SELECT sid,score FROM score WHERE sid=(<br>SELECT sid FROM StudentInfo WHERE snam=’周三’);<br>#连接<br>#把多张表连接成一张表<br>#一般连接的表有主外键关系</p>
+<p>#普通连接<br>SELECT * FROM studentinfo s,score c WHERE s.sid=c.sid;<br>#查询出每个人的平均成绩，要显示的字段为，学生姓名，平均成绩<br>SELECT snam,AVG(score) ‘平均成绩’ FROM studentinfo s,score c WHERE s.sid=c.sid GROUP BY s.sid;<br>#内连接完成<br>SELECT snam,AVG(score) ‘平均成绩’ FROM studentinfo s INNER JOIN score c ON s.sid=c.sid GROUP BY s.sid;<br>SELECT * FROM studentinfo s LEFT JOIN score c ON s.sid=c.sid;<br>#查询出有不及格成绩的学生信息，缺考也算不及格<br>SELECT * FROM studentinfo WHERE sid IN(<br>SELECT sid FROM score GROUP BY sid HAVING MIN(score)&lt;60<br>UNION<br>SELECT sid FROM score GROUP BY sid HAVING COUNT(<em>)&lt;(SELECT COUNT(</em>) FROM course));</p>
 
       
 
@@ -257,7 +255,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/10/MySQL第一次课/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/10/MySQL第三次课/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -271,18 +269,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/11/10/MySQL第二次课/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/11/10/MySQL第四次课/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          MySQL第二次课
+          MySQL第四次课
         
       </div>
     </a>
   
   
-    <a href="/2019/10/14/web前端第一章/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">web前端基础第一章</div>
+    <a href="/2019/11/10/MySQL第二次课/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL第二次课</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -152,6 +152,284 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL第五次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/10/MySQL第五次课/">MySQL第五次课</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/10/MySQL第五次课/" class="archive-article-date">
+  	<time datetime="2019-11-10T10:06:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#/*<br>    MySQL 第五次课<br>    数据库的优化与事务<br>    数据库优化的作用<br>        通过优化提高查询效率<br>    如何优化：<br>        其中一项内容就是添加索引<br>    什么是索引？<br>        索引相当于为表中的某个字段或某几个字段添加一个目录<br>    索引的分类<br>        普通索引<br>        唯一索引<br>            添加唯一约束，会默认添加唯一索引<br>        主键索引<br>            添加主键约束，会默认添加主键索引<br>        组合索引<br>        全文索引<br>        空间索引<br>    创建索引<br>        1、在创建表的同时，添加索引<br>        2、alter table<br>        3、create index</p>
+<pre><code>注意：
+    索引不是越多越好，经常用来查询的字段创建索引
+事务
+    几条语句组成一个整体，要么全部成功，要么全部失败，
+    这几条语句，放到一块就称为一个事务
+其实每条语句都是一个自动提交的事务
+1、关闭自动提交
+2、开启事务 begin
+3、执行语句，如果失败，全部回滚 rollback
+4、如果全部成功，提交事务 commit
+事务的特性
+    原子性
+        事务是一个整体，要么全部成功，要么全部失败
+    一致性
+        事务执行前后，数据的状态应该是一致的
+    隔离性
+        事务相互独立，互不相影响
+    永久性
+        事务一旦对数据进行更改，造成的影响是永久的
+隔离级别
+未提交读(read uncommitted)
+已提交读(read committed)
+可重复读(repeatable read)
+可串行化(seriarizable)</code></pre><p>*/<br>#show index from studentinfo;<br>#创建索引的方式<br>#创建表时添加索引<br>CREATE TABLE emp(<br>    eid INT PRIMARY KEY AUTO_INCREMENT,<br>    etel VARCHAR(20) UNIQUE,<br>    enam VARCHAR(20) NOT NULL,<br>    INDEX(enam) #为enam字段添加普通索引<br>)<br>SHOW INDEX FROM emp;<br>#通过create index添加索引<br>#创建普通索引<br>CREATE INDEX index_name ON table_name(colname[LENGTH])<br>#<br>CREATE UNIQUE INDEX index_name ON table_name(colname[LENGTH])</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/10/MySQL第五次课/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MySQL第四次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/10/MySQL第四次课/">MySQL第四次课</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/10/MySQL第四次课/" class="archive-article-date">
+  	<time datetime="2019-11-10T10:05:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#/*<br>Mysql第四次课<br> truncate清空表<br> truncate table 表名<br> is  null 查询字段中为null的数据<br> is not null 查询出字段中非空的数据<br> name          name is not null<br> 张三<br> null<br> 李四<br> 王五<br> null</p>
+<p> 模糊查询<br>    like<br>    % 代表一个或多个字符<br>    _ 代表一个字符<br> exists()存在<br>    exists里边括住的是一个<br>  查询语句,如果查询语句有结果，<br>  外部查询就正常执行，如果没结果，<br>  外部查询不执行<br> not exists<br> */<br>SELECT * FROM course<br>              WHERE cnam IS NOT NULL<br>#模糊查询<br>#查询出姓名中包含“三”<br>#学生的信息<br>SELECT * FROM studentinfo WHERE<br>                  snam LIKE ‘%三%’;<br>#查询出姓周的同学信息<br>SELECT * FROM studentinfo WHERE<br>                  snam LIKE ‘周%’;<br>#如果有安阳市的学生，就把<br>#本班所有学生的信息查询<br>#出来<br>SELECT * FROM studentinfo WHERE<br>   EXISTS(<br>      SELECT * FROM studentinfo WHERE<br>               address LIKE ‘%许昌%’)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/10/MySQL第四次课/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MySQL第三次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/10/MySQL第三次课/">MySQL第三次课</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/10/MySQL第三次课/" class="archive-article-date">
+  	<time datetime="2019-11-10T10:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#/*<br>    Mysql 第三次课<br>      order by  排序<br>        ASC升序<br>        DESC降序<br>      group by  分组<br>      group by … having ..筛选符合条件的组<br>      子查询<br>        查询语句里边嵌套查询语句<br>        子查询的结果作为外部查询的条件<br>      连接<br>        普通连接<br>        内连接<br>            inner join….on…<br>            inner join连接两张表<br>            on后面跟的是连接条件<br>        外连接<br>            左连接<br>                left join…on…<br>                左边那张表数据全部显示<br>                右边那张表只显示匹配上的数据<br>            右连接<br>                right join…on….<br>                右边那张表全部显示<br>                左边那张表值显示匹配上的数据<br>        全连接<br>*/<br>CREATE DATABASE schooldb;<br>USE Schooldb;<br>#教师表<br>CREATE TABLE teacher(<br>    tid INT PRIMARY KEY AUTO_INCREMENT,<br>    tnam VARCHAR(20) NOT NULL,<br>    hiredate DATE,<br>    sex VARCHAR(5)<br>)<br>#班级表<br>CREATE TABLE ClassInfo(<br>    cid INT PRIMARY KEY AUTO_INCREMENT,<br>    cnam VARCHAR(20) NOT NULL,<br>    grid INT,#年级编号<br>    beginyear VARCHAR(20)<br>)<br>#学生信息表<br>CREATE TABLE StudentInfo(<br>    sid INT PRIMARY KEY AUTO_INCREMENT,<br>    snam VARCHAR(20) NOT NULL,<br>    sex VARCHAR(5),<br>    age INT,<br>    birthday DATE,<br>    cid INT,<br>    beginyear VARCHAR(20),<br>    stel VARCHAR(15),<br>    address VARCHAR(100),<br>    email VARCHAR(50)<br>)<br>#课程表<br>CREATE TABLE course(<br>    cid INT PRIMARY KEY AUTO_INCREMENT,<br>    cnam VARCHAR(50) NOT NULL,  #课程名<br>    tid INT    #讲授老师编号<br>)<br>#成绩表<br>CREATE TABLE Score(<br>    scid INT PRIMARY KEY AUTO_INCREMENT,<br>    sid INT,#学生学号<br>    coid INT,#课程编号<br>    score INT,<br>    remark VARCHAR(100) #备注<br>)<br>#年级表<br>CREATE TABLE grade(<br>    gid INT PRIMARY KEY AUTO_INCREMENT,<br>    gnam VARCHAR(50), #年级名<br>    major VARCHAR(100) #专业<br>)<br>#一次性插入多条语句<br>INSERT INTO teacher(tnam,hiredate,sex)<br>VALUES(‘张三’,’2017-09-01’,’男’),<br>(‘李四’,’2018-07-02’,’男’),<br>(‘王五’,’2016-08-16’,’男’);<br>INSERT INTO grade(gnam,major)<br>VALUES(‘18’,’软信’),(‘19’,’软信’),<br>(‘18’,’移动’),(‘19’,’移动’);<br>INSERT INTO StudentInfo(snam,sex,age,birthday,cid,beginyear,stel,address,email)<br>VALUES(‘崔一’,’男’,18,’2001-07-05’,1,’2018’,’18867890987’,<br>‘河南省许昌市’,‘155078923@qq.com’),<br>(‘丁二’,’男’,19,’2000-08-05’,2,’2018’,’18967890987’,<br>‘河南省郑州市’,‘156078923@qq.com’),<br>(‘丁三’,’男’,20,’1999-09-05’,3,’2018’,’18877890987’,<br>‘河南省洛阳市’,‘157078923@qq.com’),<br>(‘周三’,’女’,17,’2002-06-05’,4,’2019’,’18167890987’,<br>‘河南省开封市’,‘159078923@qq.com’);<br>INSERT INTO ClassInfo(cnam,grid,beginyear) VALUES(‘软信1’,1,’2018’)<br>,(‘移动1’,2,’2018’),(‘软信1’,3,’2019’),(‘移动1’,4,’2019’);<br>INSERT INTO course(cnam,tid)<br>VALUES(‘计算机基础’,1),(‘前端基础’,2),(‘Java基础’,3),(‘js’,3);<br>INSERT INTO Score(sid,coid,score,remark)<br>VALUES(1,1,90,’无’),(1,2,75,’无’),(1,3,59,’无’),(1,4,76,’无’),<br>(2,1,93,’无’),(2,2,74,’无’),(2,3,65,’无’),(2,4,82,’无’),<br>(3,1,91,’无’),(3,2,82,’无’),(3,3,43,’无’),<br>(4,1,96,’无’),(4,2,78,’无’),(4,3,56,’无’),(4,4,88,’无’);<br>#order by排序<br>#把学生信息表按年纪从小到大排序 ASC升序<br>SELECT * FROM studentinfo ORDER BY age ASC;<br>#把学生信息表按年纪从大到小排序 DESC降序<br>SELECT * FROM studentinfo ORDER BY age DESC;<br>#group by 分组<br>#把表按照某个字段进行分组<br>#查询出每个学生的平均成绩，需要显示的字段为，学生学号，平均成绩<br>SELECT sid,AVG(score) ‘平均成绩’ FROM score GROUP BY sid<br>#group by….having…<br>#筛选出来符合条件的组<br>#查询出全部及格的学生的学号<br>SELECT sid FROM score GROUP BY sid HAVING MIN(score)&gt;60;<br>#子查询<br>#查询出js基础这门课的成绩<br>SELECT coid,score FROM score WHERE coid=(SELECT cid FROM course WHERE cnam=’js’);<br>#查询出“周三”的各门课的成绩<br>SELECT sid,score FROM score WHERE sid=(<br>SELECT sid FROM StudentInfo WHERE snam=’周三’);<br>#连接<br>#把多张表连接成一张表<br>#一般连接的表有主外键关系</p>
+<p>#普通连接<br>SELECT * FROM studentinfo s,score c WHERE s.sid=c.sid;<br>#查询出每个人的平均成绩，要显示的字段为，学生姓名，平均成绩<br>SELECT snam,AVG(score) ‘平均成绩’ FROM studentinfo s,score c WHERE s.sid=c.sid GROUP BY s.sid;<br>#内连接完成<br>SELECT snam,AVG(score) ‘平均成绩’ FROM studentinfo s INNER JOIN score c ON s.sid=c.sid GROUP BY s.sid;<br>SELECT * FROM studentinfo s LEFT JOIN score c ON s.sid=c.sid;<br>#查询出有不及格成绩的学生信息，缺考也算不及格<br>SELECT * FROM studentinfo WHERE sid IN(<br>SELECT sid FROM score GROUP BY sid HAVING MIN(score)&lt;60<br>UNION<br>SELECT sid FROM score GROUP BY sid HAVING COUNT(<em>)&lt;(SELECT COUNT(</em>) FROM course));</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/10/MySQL第三次课/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MySQL第二次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/10/MySQL第二次课/">MySQL第二次课</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/10/MySQL第二次课/" class="archive-article-date">
+  	<time datetime="2019-11-10T10:05:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#/*<br>MySQL第二次课<br>    数据库设计的三大范式<br>    第一范式：<br>        每个字段的数据都是不可分割的最小的数据单元<br>    第二范式：<br>        每张表只能描述一件事情，每张表必须有主键<br>    第三范式：<br>        非主键字段依赖于主键字段，换句话来说，非主键字段与主键字段要直接相关<br>    注意：设计表时，尽可能遵守规范，但是，有时为了性能，会牺牲一点规范<br><em>/<br>/</em>    mysql运算符<br>        算术运算符<br>         + - * /<br>        比较运算符<br>         &gt; &lt; &gt;= &lt;= (不等于)&lt;&gt; !=<br>        逻辑运算符<br>         and or<br>    聚合函数<br>        count()求行数<br>        sum()求一行的和<br>        avg()求平均值<br>        max()求最大值<br>        xin()求最小值<br>    MySQL需要记住的关键字<br>    in 查询什么什么范围里的数据<br>        name in(‘张三’,’李四’);<br>        name等于张三，name等于李四的数据，全部查询出来<br>    not in<br>        name in(‘张三’,’李四’);<br>        除了张三李四，其他人的数据全部查询出来<br>    is null<br>    is not null<br>    limit 查询表中前几行<br>    distinct 去掉某个字段或某几个字段重复的数据<br>    as     给字段取别名<br>    union  查询两张表的并集<br>    between…and… 查询什么什么范围之间的数据<br><em>/<br>SELECT 633*23;<br>SELECT * FROM goods;<br>#查询价格高于10元的商品信息<br>SELECT * FROM goods WHERE gprice&gt;10;<br>#查询出价格大于0并且小于20的商品信息<br>SELECT * FROM goods WHERE gprice&gt;3.5 AND gprice&lt;20;<br>#查询出价格不等于10的商品信息<br>SELECT * FROM goods WHERE gprice&lt;&gt;10;<br>#查询goods有多少个商品,count(</em>) ‘商品个数’把列名改为商品个数<br>SELECT COUNT(*) AS ‘商品个数’ FROM goods;<br>#求商品的总价格<br>SELECT SUM(gprice) ‘总价格’ FROM goods;<br>#求商品的平均价格<br>SELECT AVG(gprice) ‘平均价格’ FROM goods;<br>#求商品的最高价格<br>SELECT MAX(gprice) ‘最高价格’ FROM goods;<br>#求商品的最低价格<br>SELECT MIN(gprice) ‘最低价格’ FROM goods;<br>#查询商品名称为小熊雨伞，小熊书包的商品信息<br>SELECT * FROM goods WHERE gnam IN(‘小熊雨伞’,’小熊书包’);<br>#除了小熊雨伞小熊书包，其他都查询出来<br>SELECT * FROM goods WHERE gnam NOT IN(‘小熊雨伞’,’小熊书包’);<br>#查询表中前两行 limit 0,2从下标是0行开始，查询两行，limit第一个值下标，第二个值是行数<br>SELECT * FROM goods  LIMIT 0,2;<br>#去掉goods表中重复的商品<br>SELECT DISTINCT gnam FROM goods;<br>#查询商品价格在10到50之间的商品信息<br>SELECT * FROM goods WHERE gprice BETWEEN 10 AND 50;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/10/MySQL第二次课/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-MySQL第一次课" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
